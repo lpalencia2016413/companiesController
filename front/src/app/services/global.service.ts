@@ -1,9 +1,4 @@
-import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class GlobalService {
-
-  constructor() { }
+export var GlobalService = {
+  //url: "http://localhost:3000/api/"
+  url: "https://companies-controller.herokuapp.com/api/"
 }
