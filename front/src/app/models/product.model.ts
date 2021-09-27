@@ -5,7 +5,7 @@ export class Product{
     public stock: Number,
     public sale: Number,
     public totalSale: Number,
-    public idCompany,
+    public idCompany: String,
 ){}
 
 }
