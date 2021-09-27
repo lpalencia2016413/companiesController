@@ -1,13 +1,11 @@
 export class Product{
   constructor(
-   public nombre: String,
-   public correo: String,
-   public username: String,
-   public password: String,
-   public pbx: Number,
-   public nit: Number,
-   public web: String,
-   public direccion: String
+    public nameProduct: String,
+    public nameProvider: String,
+    public stock: Number,
+    public sale: Number,
+    public totalSale: Number,
+    public idCompany,
 ){}
 
 }
