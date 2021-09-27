@@ -1,4 +1,4 @@
-export class Company{
+export class Product{
   constructor(
    public nombre: String,
    public correo: String,

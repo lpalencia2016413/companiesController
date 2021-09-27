@@ -2,54 +2,54 @@ import { Injectable } from '@angular/core';
 import { GlobalService} from './global.service';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Empresa } from '../models/company.model';
+import { Company } from '../models/company.model';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class EmpresaService {
+export class CompanyService {
   public url: String;
   public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
   public token: any;
-  public Empresa: any;
+  public Company: any;
   constructor(public _http: HttpClient) {
   this.url = GlobalService.url
   }
 
-  login(empresa: any, getToken:any ): Observable<any>{
+  login(company: any, getToken:any ): Observable<any>{
     if(getToken != null){
-      empresa.getToken = getToken;
+      company.getToken = getToken;
     }
-    let params = JSON.stringify(empresa);
+    let params = JSON.stringify(company);
     return this._http.post(this.url + "login", params , {headers: this.headersVariable});
   }
 
-  registroEmpresa(empresa: Empresa,  token: any): Observable<any>{
-    let params = JSON.stringify(empresa);
+  registroCompany(company: Company,  token: any): Observable<any>{
+    let params = JSON.stringify(company);
     let headersToken = this.headersVariable.set("Authorization", token);
 
-    return this._http.post(this.url + "registrarEmpresa", params, {headers: headersToken})
+    return this._http.post(this.url + "registrarCompany", params, {headers: headersToken})
   }
-  obtenerEmpresas( token: any): Observable<any>{
+  obtenerCompanys( token: any): Observable<any>{
     let headersToken = this.headersVariable.set("Authorization", token);
 
-    return this._http.get(this.url + "obtenerEmpresas", {headers: headersToken})
+    return this._http.get(this.url + "obtenerCompanys", {headers: headersToken})
   }
-  obtenerEmpresa(id: String, token: any): Observable<any>{
+  obtenerCompany(id: String, token: any): Observable<any>{
     let headersToken = this.headersVariable.set("Authorization", token);
-    return this._http.get(this.url +"obtenerEmpresaID/" + id, {headers: headersToken})
+    return this._http.get(this.url +"obtenerCompanyID/" + id, {headers: headersToken})
   }
 
-  editarEmpresa(empresa: Empresa, token: any): Observable<any>{
-    let params = JSON.stringify(empresa);
+  editarCompany(company: Company, token: any): Observable<any>{
+    let params = JSON.stringify(company);
     let headersToken = this.headersVariable.set("Authorization", token);
-    return this._http.put(this.url + "editarEmpresa", params , {headers: headersToken})
+    return this._http.put(this.url + "editarCompany", params , {headers: headersToken})
   }
 
-  eliminarEmpresa(empresa: any): Observable<any>{
-    let params = JSON.stringify(empresa);
-    return this._http.post(this.url + "eliminarEmpresa", params, {headers: this.headersVariable})
+  eliminarCompany(company: any): Observable<any>{
+    let params = JSON.stringify(company);
+    return this._http.post(this.url + "eliminarCompany", params, {headers: this.headersVariable})
   }
 
   getToken(){
