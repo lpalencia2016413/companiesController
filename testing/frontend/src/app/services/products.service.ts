@@ -15,8 +15,8 @@ export class ProductsService {
   public product: any;
   public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(public _http: HttpClient, public _empresaService: CompanyService) {
-    this.url = GlobalService.url , this.token = this._empresaService.getToken(); }
+  constructor(public _http: HttpClient, public _companyService: CompanyService) {
+    this.url = GlobalService.url , this.token = this._companyService.getToken(); }
 
   registroProduct(product: Product, token: any): Observable<any>{
     let params = JSON.stringify(product);

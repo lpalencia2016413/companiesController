@@ -1,4 +1,4 @@
-export class Company{
+export class Employee{
   constructor(
     public nameEmployee: String,
     public jobEmployee: String,
